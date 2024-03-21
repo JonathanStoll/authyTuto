@@ -1,26 +1,25 @@
-import { useState } from 'react';
-import { Alert, StyleSheet, View } from 'react-native';
+import { useState } from "react";
+import { Alert, StyleSheet, View } from "react-native";
 
-import FlatButton from '../ui/FlatButton';
-import AuthForm from './AuthForm';
-import { Colors } from '../../constants/styles';
-import { useNavigation } from '@react-navigation/native';
+import FlatButton from "../ui/FlatButton";
+import AuthForm from "./AuthForm";
+import { Colors } from "../../constants/styles";
+import { useNavigation } from "@react-navigation/native";
 
 function AuthContent({ isLogin, onAuthenticate }) {
-
   const [credentialsInvalid, setCredentialsInvalid] = useState({
     email: false,
     password: false,
     confirmEmail: false,
     confirmPassword: false,
   });
-  const navigation = useNavigation()
+  const navigation = useNavigation();
 
   function switchAuthModeHandler() {
-    if(isLogin){
-navigation.replace('Signup')
-    }else{
-      navigation.replace('Login')
+    if (isLogin) {
+      navigation.replace("Signup");
+    } else {
+      navigation.replace("Login");
     }
   }
 
@@ -29,7 +28,7 @@ navigation.replace('Signup')
     email = email.trim();
     password = password.trim();
 
-    const emailIsValid = email.includes('@');
+    const emailIsValid = email.includes("@");
     const passwordIsValid = password.length > 6;
     const emailsAreEqual = email === confirmEmail;
     const passwordsAreEqual = password === confirmPassword;
@@ -39,7 +38,7 @@ navigation.replace('Signup')
       !passwordIsValid ||
       (!isLogin && (!emailsAreEqual || !passwordsAreEqual))
     ) {
-      Alert.alert('Invalid input', 'Please check your entered credentials.');
+      Alert.alert("Invalid input", "Please check your entered credentials.");
       setCredentialsInvalid({
         email: !emailIsValid,
         confirmEmail: !emailIsValid || !emailsAreEqual,
@@ -60,7 +59,7 @@ navigation.replace('Signup')
       />
       <View style={styles.buttons}>
         <FlatButton onPress={switchAuthModeHandler}>
-          {isLogin ? 'Create a new user' : 'Log in instead'}
+          {isLogin ? "Create a new user" : "Log in instead"}
         </FlatButton>
       </View>
     </View>
@@ -77,7 +76,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: Colors.primary800,
     elevation: 2,
-    shadowColor: 'black',
+    shadowColor: "black",
     shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 0.35,
     shadowRadius: 4,
