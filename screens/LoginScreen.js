@@ -1,7 +1,7 @@
-import AuthContent from '../components/Auth/AuthContent';
-import { useState } from 'react';
-import LoadingOverlay from '../components/ui/LoadingOverlay';
-import { login } from '../util/auth';
+import AuthContent from "../components/Auth/AuthContent";
+import { useState } from "react";
+import LoadingOverlay from "../components/ui/LoadingOverlay";
+import { login } from "../util/auth";
 function LoginScreen() {
   const [loading, setLoading] = useState(false);
 
@@ -12,7 +12,7 @@ function LoginScreen() {
   }
 
   if (loading) {
-    return <LoadingOverlay message={'loging IN...'} />;
+    return <LoadingOverlay message={"loging IN..."} />;
   }
   return <AuthContent isLogin onAuthenticate={loginHandeler} />;
 }

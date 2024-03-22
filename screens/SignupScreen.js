@@ -13,7 +13,7 @@ function SignupScreen() {
   }
 
   if (loading) {
-    return <LoadingOverlay message={'creating user...'} />;
+    return <LoadingOverlay message={"creating user..."} />;
   }
 
   return <AuthContent onAuthenticate={signupHandeler} />;
