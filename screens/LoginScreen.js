@@ -7,7 +7,9 @@ function LoginScreen() {
 
   async function loginHandeler({ email, password }) {
     setLoading(true);
-    await login(email, password);
+    try {
+      await login(email, password);
+    } catch (error) {}
     setLoading(false);
   }
 
