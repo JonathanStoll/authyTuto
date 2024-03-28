@@ -16,8 +16,8 @@ function LoginScreen() {
     authContex.authenticate(token)
     } catch (error) {
       Alert.alert('Authentication Error', 'could not log in plz check credentials')
+      setLoading(false);
     }
-    setLoading(false);
   }
 
   if (loading) {

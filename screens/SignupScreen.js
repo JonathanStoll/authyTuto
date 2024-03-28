@@ -17,8 +17,8 @@ const authContex = useContext(AuthContext)
       authContex.authenticate(token)
     } catch (error) {
       Alert.alert('creating user faild', 'try again!!')
+      setLoading(false);
     }
-    setLoading(false);
   }
 
   if (loading) {
